@@ -1,0 +1,11 @@
+.cache
+.local
+.env
+.config
+.bash_history
+data/tiles/*
+data/json/*
+data/pbf/*
+js/mapbox-gl.js
+css/mapbox-gl.css
+!.gitkeep

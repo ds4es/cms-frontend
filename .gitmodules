@@ -1,0 +1,3 @@
+[submodule "lib/tippecanoe"]
+	path = lib/tippecanoe
+	url = https://github.com/mapbox/tippecanoe
