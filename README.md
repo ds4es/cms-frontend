@@ -39,8 +39,8 @@ echo 'export PATH="$HOME/miniconda3/bin:$PATH"' | tee -a ~/.bashrc
 
 Install GDAL
 ```
-conda activate gdal
 conda create -n gdal python
+conda activate gdal
 conda install -c conda-forge gdal
 # Check the installation
 ogr2ogr --version
