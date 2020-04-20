@@ -2,7 +2,7 @@
 
 Vector tiles are really small, enabling global high resolution maps, fast map loads, and efficient caching. 
 
-![Screenshot](img/screenshot.png)
+![Screenshot](img/screenshot.jpg)
 
 ## Installation
 
