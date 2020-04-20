@@ -54,45 +54,47 @@ sudo make install
 cd ../../
 ```
 
-## Generate your own vector tiles (example with Andorra)
+## Generate your own vector tiles (example with luxembourg)
 Download any OpenStreetMap .pbf file you would like to render.
 ```
-wget -P ./data/pbf https://download.geofabrik.de/europe/andorra-latest.osm.pbf
+wget -P ./data/pbf https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf
 ```
 Convert .osm.pbf data to GeoJSON format specifying the data layer to extract, here: lines
 ```
-ogr2ogr -f 'GeoJSON' -s_srs 'EPSG:4326' -t_srs 'EPSG:4326' './data/json/andorra.json' './data/pbf/andorra-latest.osm.pbf' lines
+conda activate gdal
+ogr2ogr -f 'GeoJSON' -s_srs 'EPSG:4326' -t_srs 'EPSG:4326' './data/json/luxembourg.json' './data/pbf/luxembourg-latest.osm.pbf' lines
 ```
 Having our data in a GeoJSON file, we can now generate tiles that way:
 ```
+mkdir ./data/tiles/luxembourg
 tippecanoe \
 	--no-feature-limit \
 	--no-tile-size-limit \
 	--include={"osm_id","highway"} \
 	--maximum-zoom=16 \
-	--layer="andorra"
-	--output-to-directory "./data/tiles/andorra" \
-	"./data/json/andorra.json"
+	--layer="luxembourg" \
+	--output-to-directory "./data/tiles/luxembourg" \
+	"./data/json/luxembourg.json"
 ```
 
 ## And finally
 #### In `index.html`
-If you didn't choose to use OpenStreetMap for Andorra, specify the right information in `index.html` in place of
+If you didn't choose to use OpenStreetMap for luxembourg, specify the right information in `index.html` in place of
 ```
 style: "map_styles/basic.json",
-center: [1.5218, 42.5063], // Andorra GPS coordonates
+center: [6.1296, 49.8153], // luxembourg GPS coordonates
 ```
 
 #### In `map_styles/basic.json`
 Change `<your-app-base-url>` with right URL for your web server 
 ```
 "tiles": [
-	"<your-app-base-url>/data/tiles/andorra/{z}/{x}/{y}.pbf"
+	"<your-app-base-url>/data/tiles/luxembourg/{z}/{x}/{y}.pbf"
 ],
 ```
 Change the following expressions with --layer name you specified with the `tippecanoe` command
 ```
-"source-layer": "andorra"
+"source-layer": "luxembourg"
 ```
 
 Your app should now serve tiles.
