@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>Map</title>
+
+    <!-- MapBox GL -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Leaflet -->
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="css/styles.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <div id='map_view'>
+        <div id='object_layer'></div>
+        <div id='mb_layer'></div>
+        <div id='osm_layer'></div>
+    </div>
+
+    <!-- ************** SCRIPTS *************** -->
+    <!-- https://github.com/jieter/Leaflet.Sync -->
+    <script src="js/L.Maps.Sync.js"></script>    
+    <script src="js/utils.js"></script>
+    <script>
+        /** 
+         * This map specific properties 
+         */
+        // Map center
+        const INITIAL_CENTER_LON = 6.1296;
+        const INITIAL_CENTER_LAT = 49.8153;
+
+        // MapBox zoom levels
+        const INITIAL_ZOOM = 9;
+        const MIN_ZOOM = 5;
+        const MAX_ZOOM = 16;
+       
+        // Data
+        const MAPBOX_LAYER_BASE_STYLE_FILE = "map_styles/basic.json";
+        const TILESOURCE_URL = "http://intranet/cms-frontend/data/tiles/luxembourg/{z}/{x}/{y}.pbf";
+        const SOURCE_LAYER = "luxembourg";
+
+    </script>
+    <script src="js/map_controller.js"></script>
+    <script type="text/javascript">
+    
+        window.onload = function(){
+
+            init();
+            
+            // Load a coverage information
+            update_mapbox_layer("data/coverage/luxembourg/luxembourg_01.json");
+
+        };
+
+    </script>
+
+</body>
+</html>

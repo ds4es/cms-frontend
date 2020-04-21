@@ -6,101 +6,72 @@
   },
   "sources": {
     "composite": {
-      "type": "vector",      
+      "type": "vector",
       "tiles": [
-        "<your-app-base-url>/data/tiles/luxembourg/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 0,
-      "maxzoom": 15,
-      "center": [6.1296, 49.8153]
+        "<TILESOURCE_URL>"
+      ]
     }
   },
- "layers": [
+  "layers": [
     {
-      "id": "background",
-      "type": "background",
-      "paint": {
-        "background-color": "#e3decb"
-      }
-    },
-  {
-            "interactive": true,
-            "layout": {
-                "line-cap": "butt",
-                "line-join": "miter"
-            },
-            "filter": [
-                "all",
-                [
-                    "==",
-                    "$type",
-                    "LineString"
-                ],
-                [
-                    "all",
-                    [
-                        "in",
-                        "highway",
-                        "motorway",
-                        "motorway_link",
-                        "primary",
-                        "primary_link ",
-                        "secondary",
-                        "secondary_link ",
-                        "residential",
-                        "tertiary",
-                        "tertiary_link ",
-                        "trunk",
-                        "trunk_link",
-                        "street",
-                        "street_limited",
-                        "service",
-                        "track",
-                        "pedestrian",
-                        "path",
-                        "link"
-                    ]
-                ]
-            ],
-            "type": "line",
-            "source": "composite",
-            "id": "tunnel_minor",
-            "paint": {
-                "line-color": "#efefef",
-                "line-width": {
-                    "base": 1.55,
-                    "stops": [
-                        [
-                            4,
-                            0.25
-                        ],
-                        [
-                            20,
-                            30
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "luxembourg"
-        },
-    {
-      "id": "Road",
-      "type": "line",
-      "source": "composite",
-      "source-layer": "luxembourg",
-      "paint": {
-        "line-color": "#0000FF",
-        "line-width": 2
+      "interactive": true,
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter"
       },
       "filter": [
         "all",
         [
-          "in",
-          "osm_id",
-          "22362230",
-          "13310660"
-        ] 
-      ]
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "all",
+          [
+            "in",
+            "highway",
+            "motorway",
+            "motorway_link",
+            "primary",
+            "primary_link ",
+            "secondary",
+            "secondary_link ",
+            "residential",
+            "tertiary",
+            "tertiary_link ",
+            "trunk",
+            "trunk_link",
+            "street",
+            "street_limited",
+            "service",
+            "track",
+            "pedestrian",
+            "path",
+            "link"
+          ]
+        ]
+      ],
+      "type": "line",
+      "source": "composite",
+      "id": "tunnel_minor",
+      "paint": {
+        "line-color": "#FF0000",
+        "line-width": {
+          "base": 1.55,
+          "stops": [
+            [
+              4,
+              0.25
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        }
+      },
+      "source-layer": "<SOURCE_LAYER>"
     }
   ]
 }

@@ -4,6 +4,8 @@ Vector tiles are really small, enabling global high resolution maps, fast map lo
 
 ![Screenshot](img/screenshot.jpg)
 
+For real time units tracking (UBER like) you could consider this repo: https://github.com/firebase/geofire-java
+
 ## Installation
 
 ```

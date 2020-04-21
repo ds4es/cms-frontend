@@ -20,6 +20,7 @@ body {
     width: 100%;
     z-index: 2;
     overflow: scroll;
+    background:transparent;
 }
 
 #object_layer {
