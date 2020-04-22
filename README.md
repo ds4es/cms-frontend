@@ -1,13 +1,20 @@
 # cms-frontend
 
-Vector tiles are really small, enabling global high resolution maps, fast map loads, and efficient caching. 
+This repo offers a front-end solution to project in a fast and efficient way a high resolution of the service capacity coverage information for critical dispatch services such as an emergency service.
 
-![Screenshot](img/screenshot.jpg)
+This is made possible thanks to MapBox GL JS and the self production of vector tiles which are really small, enabling global high resolution maps, fast map loads, and efficient caching. 
+
+![Rendering example for Ile-de-France region](img/rendering_example_ile-de-france.jpg.jpg)
 
 For real time units tracking (UBER like) you could consider this repo: https://github.com/firebase/geofire-java
 
-## Installation
+## Generate your own vector tiles on RHEL 8 / CentOS 8 Linux
 
+In order to visualize the coverage information stored under `data/coverage`, tiles have to be generated first for regions relative to the index_###.html files available.
+
+We save our tiles in a dedicated folder under `data/tiles/<region_name>`.
+
+Prerequisite packages
 ```
 sudo dnf install wget git expat sqlite-devel proj-devel libnsl
 ```
@@ -58,7 +65,7 @@ sudo make install
 cd ../../
 ```
 
-## Generate your own vector tiles (example with luxembourg)
+#### Generate vector tiles (example for Luxembourg)
 Download any OpenStreetMap .pbf file you would like to render.
 ```
 wget -P ./data/pbf https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf
@@ -81,24 +88,6 @@ tippecanoe \
 	"./data/json/luxembourg.json"
 ```
 
-## And finally
-#### In `index.html`
-If you didn't choose to use OpenStreetMap for luxembourg, specify the right information in `index.html` in place of
-```
-style: "map_styles/basic.json",
-center: [6.1296, 49.8153], // luxembourg GPS coordonates
-```
+If the repo has been placed under a web server (like Apache or Nginx), you should have the following rendering at http://your_web_server_url/cms-frontend/index_luxembourg.html:
 
-#### In `map_styles/basic.json`
-Change `<your-app-base-url>` with right URL for your web server 
-```
-"tiles": [
-	"<your-app-base-url>/data/tiles/luxembourg/{z}/{x}/{y}.pbf"
-],
-```
-Change the following expressions with --layer name you specified with the `tippecanoe` command
-```
-"source-layer": "luxembourg"
-```
-
-Your app should now serve tiles.
+![Rendering example for Luxembourg](img/rendering_example_luxembourg.jpg)

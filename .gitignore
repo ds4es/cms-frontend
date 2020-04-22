@@ -10,6 +10,5 @@ js/mapbox-gl.js
 css/mapbox-gl.css
 !.gitkeep
 map_styles/*
-!map_styles/basic_ile-de-france.json
 index_london.html
 
