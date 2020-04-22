@@ -4,7 +4,7 @@ This repo offers a front-end solution to project in a fast and efficient way a h
 
 This is made possible thanks to MapBox GL JS and the self production of vector tiles which are really small, enabling global high resolution maps, fast map loads, and efficient caching. 
 
-![Rendering example for Ile-de-France region](img/rendering_example_ile-de-france.jpg.jpg)
+![Rendering example for Ile-de-France region](img/rendering_example_ile-de-france.jpg)
 
 For real time units tracking (UBER like) you could consider this repo: https://github.com/firebase/geofire-java
 
