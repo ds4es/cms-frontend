@@ -1,4 +1,4 @@
-# cms-frontend
+# Coverage Monitoring Service (Front-End)
 
 This repo offers a front-end solution to project in a fast and efficient way a high resolution of the service capacity coverage information for critical dispatch services such as an emergency service.
 
@@ -6,9 +6,22 @@ This is made possible thanks to MapBox GL JS and the self production of vector t
 
 ![Rendering example for Ile-de-France region](img/rendering_example_ile-de-france.jpg)
 
-For real time units tracking (UBER like) you could consider this repo: https://github.com/firebase/geofire-java
+For real time units tracking (UBER like) you could consider these repo:
 
-## Generate your own vector tiles on RHEL 8 / CentOS 8 Linux
+* https://github.com/firebase/geofire-java
+* https://github.com/code-and-dogs/liveMaps
+
+A demo and usage of various free tile providers can be found here:
+
+* https://leaflet-extras.github.io/leaflet-providers/preview/
+
+# Installation instructions on RHEL 8 / CentOS 8 Linux
+
+## Prerequisites
+
+Having a working web server where to download this repo.
+
+## Generate your own vector tiles 
 
 In order to visualize the coverage information stored under `data/coverage`, tiles have to be generated first for regions relative to the index_###.html files available.
 
