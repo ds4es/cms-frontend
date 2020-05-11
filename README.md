@@ -6,10 +6,7 @@ This is made possible thanks to MapBox GL JS and the self production of vector t
 
 ![Rendering example for Ile-de-France region](img/rendering_example_ile-de-france.jpg)
 
-For real time units tracking (UBER like) you could consider these repo:
-
-* https://github.com/firebase/geofire-java
-* https://github.com/code-and-dogs/liveMaps
+For real time units tracking (UBER like) you could consider these repo: https://github.com/ds4es/real-time-units-gps-tracking
 
 A demo and usage of various free tile providers can be found here:
 
@@ -35,8 +32,8 @@ sudo dnf install wget git expat sqlite-devel proj-devel libnsl
 Git clone this repo where it will be serve by a web server (like Apache or Nginx)
 ```
 cd /path/to/my/web/server
-git clone https://github.com/ds4es/cms-frontend
-cd cms-frontend
+git clone https://github.com/ds4es/service-coverage-monitoring-frontend
+cd service-coverage-monitoring-frontend
 ```
 
 Pull all git submodules
@@ -101,6 +98,6 @@ tippecanoe \
 	"./data/json/luxembourg.json"
 ```
 
-If the repo has been placed under a web server (like Apache or Nginx), you should have the following rendering at http://your_web_server_url/cms-frontend/index_luxembourg.html:
+If the repo has been placed under a web server (like Apache or Nginx), you should have the following rendering at http://your_web_server_url/service-coverage-monitoring-frontend/index_luxembourg.html:
 
 ![Rendering example for Luxembourg](img/rendering_example_luxembourg.jpg)
